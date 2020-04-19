@@ -29,8 +29,9 @@
 
     <body class="font-sans antialiased bg-gray-900 flex flex-col min-h-screen">
         <header class="container w-full max-w-4xl mx-auto px-6 pt-8">
-            <div class="flex items-center">
-                <h1 class="text-blue-100">~ separovic.dev</h1>
+            <div class="flex items-center py-2">
+                <span class="block text-5xl text-blue-700 font-extrabold">~</span>
+                <h1 class="ml-2 text-blue-100">separovic.dev</h1>
                 <div class="ml-2 w-3 h-7 bg-gray-100 blink" style="animation: 1s linear 0s infinite normal none running blink"></div>
             </div>
             <nav class="flex text-lg">
