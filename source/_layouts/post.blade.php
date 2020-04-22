@@ -7,10 +7,15 @@
     <meta property="og:description" content="{{ $page->description }}" />
 @endpush
 
+@section('nav')
+    <header class="flex items-center">
+        <a href="/" class="text-gray-200">&lt;&lt;back</a>
+        <p class="ml-2 text-gray-600 text-sm font-medium">written by {{ $page->author }} on {{ date('F j, Y', $page->date) }}</p>
+    </header>
+@endsection
+
 @section('body')
     <h1 class="leading-none mb-2">{{ $page->title }}</h1>
-    <p class="text-gray-700 text-xl md:mt-0">{{ $page->author }}  •  {{ date('F j, Y', $page->date) }}</p>
-
     @if ($page->categories)
         @foreach ($page->categories as $i => $category)
             <a
@@ -21,11 +26,11 @@
         @endforeach
     @endif
 
-    <div class="border-b border-blue-200 mb-10 pb-4">
+    <div class="post">
         @yield('content')
     </div>
 
-    <nav class="flex justify-between text-sm md:text-base">
+    <nav class="flex justify-between text-sm mt-10 md:text-base">
         <div>
             @if ($next = $page->getNext())
                 <a href="{{ $next->getUrl() }}" title="Older Post: {{ $next->title }}">

@@ -28,28 +28,32 @@
     </head>
 
     <body class="font-sans antialiased bg-gray-900 flex flex-col min-h-screen">
+        <div class="absolute border-t-8 border-blue-700 h-6 w-full"></div>
         <header class="container w-full max-w-4xl mx-auto px-6 pt-8">
-            <div class="flex items-center py-2">
-                <span class="block text-5xl text-blue-700 font-extrabold">~</span>
-                <h1 class="ml-2 text-blue-100">separovic.dev</h1>
-                <div class="ml-2 w-3 h-7 bg-gray-100 blink" style="animation: 1s linear 0s infinite normal none running blink"></div>
-            </div>
-            <nav class="flex text-lg">
-                <a title="{{ $page->siteName }} Blog"
-                   href="/"
-                   class="text-gray-200 hover:text-blue-600">
-                    blog.<span class="{{ $page->isActive('/') ? 'active text-blue-600' : '' }}">php</span>
-                </a>
-                <a title="{{ $page->siteName }} About"
-                   href="/about"
-                   class="ml-6 text-gray-200 hover:text-blue-600"
-                >
-                    about.<span class="{{ $page->isActive('/about') ? 'active text-blue-600' : '' }}">php</span>
-                </a>
-            </nav>
+            @section('nav')
+                <div class="flex items-center py-2">
+                    <span class="block text-5xl text-blue-700 font-extrabold">~</span>
+                    <h1 class="ml-2 text-blue-100">separovic.dev</h1>
+                    <div class="ml-2 w-3 h-7 bg-gray-100 blink" style="animation: blink infinite .9s linear"></div>
+                </div>
+                <nav class="flex text-lg">
+                    <a title="{{ $page->siteName }} Blog"
+                       href="/"
+                       class="text-gray-200 hover:text-blue-600">
+                        blog.<span class="{{ $page->isActive('/') ? 'active text-blue-600' : '' }}">php</span>
+                    </a>
+                    <a title="{{ $page->siteName }} About"
+                       href="/about"
+                       class="ml-6 text-gray-200 hover:text-blue-600"
+                    >
+                        about.<span class="{{ $page->isActive('/about') ? 'active text-blue-600' : '' }}">php</span>
+                    </a>
+                </nav>
+            @show
         </header>
 
-        <main role="main" class="container w-full max-w-4xl mx-auto px-6 mt-6 flex-1">
+
+        <main role="main" class="container w-full max-w-4xl mx-auto px-6 flex-1">
             @yield('body')
         </main>
 
